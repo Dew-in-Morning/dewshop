@@ -20,6 +20,17 @@
         </div>
       </div>
     </div>
+    <div class="header">
+      <div class="container">
+        <div class="logo">
+          <img src="../assets/images/pnglogo.png" alt="">
+        </div>
+        <div class="search">
+          <input type="text">
+          <button><img src="../assets/images/search_icon.png" alt=""></button>
+        </div>
+      </div>
+    </div>  
   </div>
 </template>
 <script>
@@ -29,11 +40,14 @@
 .container{
   width: 1190px;
   margin: 0 auto;
-  display: flex;
+  
+}
+/* #region 顶部导航栏 */
+.topbar .container{
+display: flex;
   justify-content: space-between;
   align-items: center;
 }
-/* #region 顶部导航栏 */
 .topbar{
   height:30px;
   background-color: #ECECEC;
@@ -75,6 +89,42 @@
   color: #000;
 }
 /* #endregion */
+/* #region 头部搜索栏 */
+.header{
+  height: 120px;
+  background-color: #f1ffd5;
+}
+.header .container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.logo img{
+  height: 120px;
+}
+.search{
+  height: 120px;
+  line-height: 120px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+.search input{
+  width: 400px;
+  height: 30px;
+  padding-left: 10px;
+  border: 1px solid #c2f587;
+}
+.search button{
+  width: 80px;
+  height: 32px;
+  background-color: #c2f587;
+}
+.search button img{
+  margin: 0 auto;
+  height: 25px;
+}
+/* #endregion */
 
 </style>
