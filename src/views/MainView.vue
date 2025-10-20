@@ -31,6 +31,22 @@
         </div>
       </div>
     </div>  
+    <div class="main-nav">
+      <div class="container">
+        <div class="all-type">
+          <a href="#">全部商品分类</a>
+        </div>
+        <div class="type-nav">
+          <ul>
+            <li><a href="#">手机</a></li>
+            <li><a href="#">平板</a></li>
+            <li><a href="#">笔记本</a></li>
+            <li><a href="#">智能电视</a></li>
+            <li><a href="#">智能音响</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
