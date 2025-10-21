@@ -512,7 +512,21 @@
         <div class="banner">
           <img src="../assets/images/banner主图.png" alt="">
         </div>
-        <div class="slide-other">3</div>
+        <div class="slide-other">
+          <div class="message">
+            <div class="title">
+              <span>尚品快报</span>
+              <a href="#">更多&nbsp;&gt;</a>
+            </div>
+            <ul class="msg-list">
+              <li><a href="#">[特惠] 毛衣+直筒裤才是YYDS</a></li>
+              <li><a href="#">[特惠] 毛衣+直筒裤才是YYDS</a></li>
+              <li><a href="#">[特惠] 毛衣+直筒裤才是YYDS</a></li>
+              <li><a href="#">[特惠] 毛衣+直筒裤才是YYDS</a></li>
+            </ul>
+          </div>
+          <div class="other-nav"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -526,9 +540,11 @@
   margin: 0 auto;
 
 }
-a:hover {
+
+li a:hover {
   color: #1ac587;
 }
+
 /* #region 顶部导航栏 */
 .topbar .container {
   display: flex;
@@ -669,6 +685,9 @@ a:hover {
   font-size: 16px;
 }
 
+/* .type-nav li a:hover {
+  color: #1ac587;
+} */
 /* #endregion */
 
 /* #region 侧导航栏  */
@@ -743,6 +762,7 @@ a:hover {
   padding: 0 10px;
   border-left: 1px solid #666;
 }
+
 .second-menu dd a:hover,
 .second-menu dt a:hover {
   color: #1ac587;
@@ -756,10 +776,34 @@ a:hover {
   margin: 0 10px;
 }
 
+
 .main-content .slide-other {
-  width: 290px;
-  height: 458px;
-  background-color: orange;
+    width: 290px;
+    height: 458px;
+    /* background-color: orange; */
+}
+.slide-other .message {
+    width: 260px;
+    height: 156px;
+    padding: 0 14px;
+    border: 1px solid #D9D9D9 ;
+}
+.slide-other .message .title {
+    height: 38px;
+    line-height: 38px;
+    border-bottom: 1px solid #D9D9D9;
+    display: flex;
+    justify-content: space-between;
+}
+.slide-other .message .title span {
+    font-size: 14px;
+}
+.slide-other .message .title a {
+    font-size: 12px;
+}
+.slide-other .msg-list li {
+    height: 26px;
+    line-height: 26px;
 }
 
 
