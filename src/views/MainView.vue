@@ -509,7 +509,9 @@
             </div>
           </li>
         </ul>
-        <div class="banner">2</div>
+        <div class="banner">
+          <img src="../assets/images/banner主图.png" alt="">
+        </div>
         <div class="slide-other">3</div>
       </div>
     </div>
@@ -524,7 +526,9 @@
   margin: 0 auto;
 
 }
-
+a:hover {
+  color: #1ac587;
+}
 /* #region 顶部导航栏 */
 .topbar .container {
   display: flex;
@@ -739,14 +743,16 @@
   padding: 0 10px;
   border-left: 1px solid #666;
 }
-
+.second-menu dd a:hover,
+.second-menu dt a:hover {
+  color: #1ac587;
+}
 
 
 
 .main-content .banner {
   width: 690px;
   height: 458px;
-  background-color: green;
   margin: 0 10px;
 }
 
