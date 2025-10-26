@@ -525,7 +525,82 @@
               <li><a href="#">[特惠] 毛衣+直筒裤才是YYDS</a></li>
             </ul>
           </div>
-          <div class="other-nav"></div>
+          <div class="other-nav">
+            <ul class="nav-list">
+              <li><a href="#">
+                <div class="picture">
+
+                </div>
+                <span>占位符</span>
+                </a></li>
+              <li><a href="#">
+                <div class="picture">
+
+                </div>
+                <span>占位符</span>
+                </a></li>
+              <li><a href="#">
+                <div class="picture">
+
+                </div>
+                <span>占位符</span>
+                </a></li>
+              <li><a href="#">
+                <div class="picture">
+
+                </div>
+                <span>占位符</span>
+                </a></li>
+              <li><a href="#">
+                <div class="picture">
+
+                </div>
+                <span>占位符</span>
+                </a></li>
+              <li><a href="#">
+                <div class="picture">
+
+                </div>
+                <span>占位符</span>
+                </a></li>
+              <li><a href="#">
+                <div class="picture">
+
+                </div>
+                <span>占位符</span>
+                </a></li>
+              <li><a href="#">
+                <div class="picture">
+
+                </div>
+                <span>占位符</span>
+                </a></li>
+              <li><a href="#">
+                <div class="picture">
+
+                </div>
+                <span>占位符</span>
+                </a></li>
+              <li><a href="#">
+                <div class="picture">
+
+                </div>
+                <span>占位符</span>
+                </a></li>
+              <li><a href="#">
+                <div class="picture">
+
+                </div>
+                <span>占位符</span>
+                </a></li>
+              <li><a href="#">
+                <div class="picture">
+
+                </div>
+                <span>占位符</span>
+                </a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -806,6 +881,53 @@ li a:hover {
     line-height: 26px;
 }
 
+/* #region 侧边精灵图导航 */
+.slide-other .other-nav{
+  margin-top: 10px;
+  width: 290px;
+  height: 290px;
+}
+.nav-list {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 17px 22px;
+}
+.nav-list li{
+  width: 48px;
+  height: 70px;
+  font-align: center;
+}
+.nav-list .picture {
+  width: 48px;
+  height: 48px;
+  background-image: url('../assets/images/精灵图-侧边功能.png');
+}
 
+/* 第1行图标 */
+.nav-list li:nth-child(1) .picture { background-position: 0 0; }
+.nav-list li:nth-child(2) .picture { background-position: -48px 0; }
+.nav-list li:nth-child(3) .picture { background-position: -96px 0; }
+.nav-list li:nth-child(4) .picture { background-position: -144px 0; }
+
+/* 第2行图标 */
+.nav-list li:nth-child(5) .picture { background-position: 0 -48px; }
+.nav-list li:nth-child(6) .picture { background-position: -48px -48px; }
+.nav-list li:nth-child(7) .picture { background-position: -96px -48px; }
+.nav-list li:nth-child(8) .picture { background-position: -144px -48px; }
+
+/* 第3行图标 */
+.nav-list li:nth-child(9) .picture { background-position: 0 -96px; }
+.nav-list li:nth-child(10) .picture { background-position: -48px -96px; }
+.nav-list li:nth-child(11) .picture { background-position: -96px -96px; }
+.nav-list li:nth-child(12) .picture { background-position: -144px -96px; }
+.nav-list li span {
+  font-size: 12px;
+  width: 48px;
+  text-align: center;
+  display: block;
+}
 /* #endregion */
+/* #endregion */
+
 </style>
