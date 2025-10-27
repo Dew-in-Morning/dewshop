@@ -510,7 +510,7 @@
           </li>
         </ul>
         <div class="banner">
-          <img src="../assets/images/banner主图.png" alt="">
+          <img src="../assets/images/banner主图1.png" alt="">
         </div>
         <div class="slide-other">
           <div class="message">
