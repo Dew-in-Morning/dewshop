@@ -660,6 +660,127 @@
         </div>
       </div>
     </div>
+    <div class="floor">
+        <div class="container">
+            <!-- 上部分 -->
+            <div class="floor-nav">
+                <span class="floor-name">家用电器</span>
+                <ul class="floor-nav-list">
+                    <li><a href="#">热门</a></li>
+                    <li><a href="#">大家电</a></li>
+                    <li><a href="#">生活电器</a></li>
+                    <li><a href="#">厨房电器</a></li>
+                    <li><a href="#">应季电器</a></li>
+                    <li><a href="#">空气/净水</a></li>
+                    <li><a href="#">高端电器</a></li>
+                </ul>
+            </div>
+            <!-- 下部分 -->
+            <div class="floor-info">
+                <div class="item item1">
+                    <ul class="item1-list">
+                        <li><a href="#">节能补贴</a></li>
+                        <li><a href="#">4K电视</a></li>
+                        <li><a href="#">空气净化器</a></li>
+                        <li><a href="#">IH电饭煲</a></li>
+                        <li><a href="#">滚筒洗衣机</a></li>
+                        <li><a href="#">电热水器</a></li>
+                    </ul>
+                    <img src="../assets/images/编组.png" alt="广告图">
+                </div>
+                <div class="item item2">
+                    <img src="../assets/images/appliance_banner07.png" alt="广告图">
+                </div>
+                <div class="item item3">
+                    <img src="../assets/images/微波炉.png" alt="微波炉">
+                    <img src="../assets/images/空气炸锅.png" alt="空气炸锅">
+                </div>
+                <div class="item item4">
+                    <img src="../assets/images/冰箱.png" alt="冰箱">
+                </div>
+                <div class="item item5">
+                    <img src="../assets/images/电饭煲.png" alt="电饭煲">
+                    <img src="../assets/images/电饭煲2.png" alt="电饭煲2">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 页脚 -->
+    <div class="footer">
+        <div class="container">
+            <!-- 顶部链接 -->
+            <div class="top-links">
+                <ul class="links-list">
+                    <li><a href="#">购物指南</a></li>
+                    <li><a href="#">购物流程</a></li>
+                    <li><a href="#">会员介绍</a></li>
+                    <li><a href="#">生活旅行</a></li>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">大家电</a></li>
+                    <li><a href="#">联系客服</a></li>
+                </ul>
+                <ul class="links-list">
+                    <li><a href="#">配送方式</a></li>
+                    <li><a href="#">上门自提</a></li>
+                    <li><a href="#">211限时达</a></li>
+                    <li><a href="#">配送服务查询</a></li>
+                    <li><a href="#">配送费收取标准</a></li>
+                </ul>
+                <ul class="links-list">
+                    <li><a href="#">支付方式</a></li>
+                    <li><a href="#">货到付款</a></li>
+                    <li><a href="#">在线支付</a></li>
+                    <li><a href="#">生活旅行</a></li>
+                    <li><a href="#">分期付款</a></li>
+                    <li><a href="#">公司转账</a></li>
+                </ul>
+                <ul class="links-list">
+                    <li><a href="#">售后服务</a></li>
+                    <li><a href="#">售后政策</a></li>
+                    <li><a href="#">价格保护</a></li>
+                    <li><a href="#">退款说明</a></li>
+                    <li><a href="#">返修/退换货</a></li>
+                    <li><a href="#">取消订单</a></li>
+                </ul>
+                <ul class="links-list">
+                    <li><a href="#">特色服务</a></li>
+                    <li><a href="#">夺宝岛</a></li>
+                    <li><a href="#">DIY装机</a></li>
+                    <li><a href="#">延保服务</a></li>
+                    <li><a href="#">尚品汇E卡</a></li>
+                    <li><a href="#">尚品汇通信</a></li>
+                    <li><a href="#">尚品鱼座智能</a></li>
+                </ul>
+                <ul class="links-list">
+                    <li><a href="#">自营覆盖区县</a></li>
+                    <li><a href="#">尚品汇已向全国2661个区县</a></li>
+                    <li><a href="#">提供自 营配送服务，支持货到</a></li>
+                    <li><a href="#">付款、POS 机刷卡和售后上门</a></li>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">服务</a></li>
+                    <li><a href="#">查看详情</a></li>
+                </ul>
+            </div>
+            <!-- 分隔线 -->
+            <div class="line"></div>
+            <!-- 底部链接 -->
+            <div class="bottom-links">
+                <ul class="bottom-links-list clearfix">
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">联系我们</a></li>
+                    <li><a href="#">联系客服</a></li>
+                    <li><a href="#">合作招商</a></li>
+                    <li><a href="#">商家帮助</a></li>
+                    <li><a href="#">营销中心</a></li>
+                    <li><a href="#">手机尚品</a></li>
+                    <li><a href="#">友情链接</a></li>
+                    <li><a href="#">销售联盟</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+                <div class="copyright">京ICP备12345678901</div>
+            </div>
+        </div>
+    </div>
   </div>
 </template>
 <script>
@@ -1133,4 +1254,63 @@ li a:hover {
 }
 
 /* #endregion楼层区end*/
+
+
+/* #region页脚区start */
+.footer {
+    margin-top: 48px;
+    height: 440px;
+    background-color: #483E3E ;
+}
+.top-links {
+    display: flex;
+    justify-content: space-between;
+}
+.links-list {
+    width: 190px;
+    height: 176px;
+    margin-top: 48px;
+    margin-right: 10px;
+}
+.links-list:last-child {
+    margin-right: 0px;
+}
+.links-list a {
+    color: white;
+    font-size: 14px;
+}
+.line {
+    margin-top: 22px;
+    height: 1px;
+    background-color: #584D4D;
+}
+.bottom-links {
+    text-align: center;
+    margin-top: 47px;
+}
+.bottom-links-list {
+    display: flex;
+    justify-content: center;
+}
+
+.bottom-links-list li a {
+    padding: 0 26px;
+    border-right: 1px solid white;
+    color: white;
+}
+.bottom-links-list li:first-child a {
+    padding-left: 0;
+}
+.bottom-links-list li:last-child a {
+    padding-right: 0;
+    border: 0;
+}
+.copyright {
+    margin-top: 10px;
+    color: white;
+}
+
+
+/* #endregion页脚区end */
+
 </style>
