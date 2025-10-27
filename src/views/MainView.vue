@@ -614,6 +614,52 @@
             <img src="../assets/images/baner4.png" alt="秒杀4">
         </div>
     </div>
+    <!-- 楼层 -->
+    <div class="floor">
+        <div class="container">
+            <!-- 上部分 -->
+            <div class="floor-nav">
+                <span class="floor-name">家用电器</span>
+                <ul class="floor-nav-list">
+                    <li><a href="#">热门</a></li>
+                    <li><a href="#">大家电</a></li>
+                    <li><a href="#">生活电器</a></li>
+                    <li><a href="#">厨房电器</a></li>
+                    <li><a href="#">应季电器</a></li>
+                    <li><a href="#">空气/净水</a></li>
+                    <li><a href="#">高端电器</a></li>
+                </ul>
+            </div>
+            <!-- 下部分 -->
+            <div class="floor-info">
+                <div class="item item1">
+                    <ul class="item1-list clearfix">
+                        <li><a href="#">节能补贴</a></li>
+                        <li><a href="#">4K电视</a></li>
+                        <li><a href="#">空气净化器</a></li>
+                        <li><a href="#">IH电饭煲</a></li>
+                        <li><a href="#">滚筒洗衣机</a></li>
+                        <li><a href="#">电热水器</a></li>
+                    </ul>
+                    <img src="../assets/images/编组.png" alt="广告图">
+                </div>
+                <div class="item item2">
+                    <img src="../assets/images/appliance_banner07.png" alt="广告图">
+                </div>
+                <div class="item item3">
+                    <img src="../assets/images/微波炉.png" alt="微波炉">
+                    <img src="../assets/images/空气炸锅.png" alt="空气炸锅">
+                </div>
+                <div class="item item4">
+                    <img src="../assets/images/冰箱.png" alt="冰箱">
+                </div>
+                <div class="item item5">
+                    <img src="../assets/images/电饭煲.png" alt="电饭煲">
+                    <img src="../assets/images/电饭煲2.png" alt="电饭煲2">
+                </div>
+            </div>
+        </div>
+    </div>
   </div>
 </template>
 <script>
@@ -950,4 +996,88 @@ li a:hover {
 }
 
 /* #endregion */
+/* #region楼层区start*/
+.floor {
+    margin-top: 48px;
+}
+.floor-name {
+    font-size: 20px;
+}
+.floor-nav {
+    height: 30px;
+    line-height: 30px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #c2f587;
+    display: flex;
+    justify-content: space-between;
+}
+.floor-nav-list {
+    display: flex;
+}
+.floor-nav-list li {
+    font-size: 14px;
+}
+.floor-nav-list li a {
+    padding: 0 10px;
+    border-right: 1px solid #666;
+}
+.floor-nav-list li:first-child a {
+    padding-left: 0;
+}
+.floor-nav-list li:last-child a {
+    padding-right: 0;
+    border: 0;
+}
+.floor-info {
+    display: flex;
+}
+.floor-info .item1 {
+    width: 190px;
+    height: 392px;
+    background-color: #F4F4F4 ;
+    padding: 20px;
+}
+.item1-list {
+    margin-bottom: 29px;
+}
+.item1-list li {
+    width: 90px;
+    height: 22px;
+    padding-bottom: 3.5px;
+    border-bottom: 1px solid #D9D9D9 ;
+    font-size: 16px;
+    text-align: center;
+}
+.item1-list li:nth-child(2n-1) {
+    float: left;
+}
+.item1-list li:nth-child(2n) {
+    float: right;
+}
+.item1-list li:nth-child(3),
+.item1-list li:nth-child(4) {
+    margin: 14.4px 0;
+}
+
+.floor-info .item2 {
+    width: 340px;
+    height: 432px;
+}
+.floor-info .item3,
+.floor-info .item4,
+.floor-info .item5 {
+    width: 206px;
+    height: 432px;
+}
+.floor-info .item3 img,
+.floor-info .item4 img,
+.floor-info .item5 img {
+    border-bottom: 1px solid #E2E2E2 ;
+}
+.floor-info .item3,
+.floor-info .item4 {
+    border-right: 1px solid #E2E2E2 ;
+}
+
+/* #endregion楼层区end*/
 </style>
