@@ -604,6 +604,16 @@
         </div>
       </div>
     </div>
+    <!-- 秒杀 -->
+    <div class="seckill">
+        <div class="container">
+            <img src="../assets/images/seckill.png" alt="秒杀">
+            <img src="../assets/images/banner1.png" alt="秒杀1">
+            <img src="../assets/images/banner2.png" alt="秒杀2">
+            <img src="../assets/images/banner3.png" alt="秒杀3">
+            <img src="../assets/images/baner4.png" alt="秒杀4">
+        </div>
+    </div>
   </div>
 </template>
 <script>
@@ -929,5 +939,15 @@ li a:hover {
 }
 /* #endregion */
 /* #endregion */
+/* #region 秒杀 */
+.seckill {
+  margin-top: 10px;
+}
+.seckill .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
+/* #endregion */
 </style>
