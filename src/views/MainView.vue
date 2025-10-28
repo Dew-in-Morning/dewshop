@@ -509,8 +509,41 @@
             </div>
           </li>
         </ul>
-        <div class="banner">
-          <img src="../assets/images/banner主图1.png" alt="">
+        <!-- 轮播图容器 -->
+        <div class="banner-carousel" 
+             @mouseenter="pauseAutoPlay" 
+             @mouseleave="startAutoPlay">
+          <!-- 图片容器 -->
+          <div class="carousel-container">
+            <div class="carousel-wrapper" 
+                 :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
+              <div class="carousel-item" 
+                   v-for="(image, index) in bannerImages" 
+                   :key="index">
+                <img :src="image.src" :alt="image.alt">
+              </div>
+            </div>
+          </div>
+          
+          <!-- 左右切换按钮 -->
+          <button class="carousel-btn carousel-btn-prev" 
+                  @click="prevImage">
+            <span>&lt;</span>
+          </button>
+          <button class="carousel-btn carousel-btn-next" 
+                  @click="nextImage">
+            <span>&gt;</span>
+          </button>
+          
+          <!-- 底部指示器 -->
+          <div class="carousel-indicators">
+            <span class="indicator" 
+                  v-for="(image, index) in bannerImages" 
+                  :key="index"
+                  :class="{ active: index === currentIndex }"
+                  @click="goToImage(index)">
+            </span>
+          </div>
         </div>
         <div class="slide-other">
           <div class="message">
@@ -784,7 +817,88 @@
   </div>
 </template>
 <script>
-
+export default {
+  name: 'MainView',
+  data() {
+    return {
+      // 轮播图相关数据
+      currentIndex: 0, // 当前显示的图片索引
+      autoPlayTimer: null, // 自动播放定时器
+      bannerImages: [
+        {
+          src: require('../assets/images/banner主图1.png'),
+          alt: 'Banner 1'
+        },
+        {
+          src: require('../assets/images/banner主图2.png'),
+          alt: 'Banner 2'
+        },
+        {
+          src: require('../assets/images/banner主图3.png'),
+          alt: 'Banner 3'
+        }
+      ]
+    }
+  },
+  methods: {
+    /**
+     * 切换到下一张图片
+     */
+    nextImage() {
+      this.currentIndex = (this.currentIndex + 1) % this.bannerImages.length;
+    },
+    
+    /**
+     * 切换到上一张图片
+     */
+    prevImage() {
+      this.currentIndex = this.currentIndex === 0 
+        ? this.bannerImages.length - 1 
+        : this.currentIndex - 1;
+    },
+    
+    /**
+     * 跳转到指定索引的图片
+     * @param {number} index - 目标图片索引
+     */
+    goToImage(index) {
+      this.currentIndex = index;
+    },
+    
+    /**
+     * 开始自动播放
+     */
+    startAutoPlay() {
+      this.autoPlayTimer = setInterval(() => {
+        this.nextImage();
+      }, 3000); // 每3秒切换一次
+    },
+    
+    /**
+     * 暂停自动播放
+     */
+    pauseAutoPlay() {
+      if (this.autoPlayTimer) {
+        clearInterval(this.autoPlayTimer);
+        this.autoPlayTimer = null;
+      }
+    }
+  },
+  
+  /**
+   * 组件挂载时启动自动播放
+   */
+  mounted() {
+    this.startAutoPlay();
+  },
+  
+  /**
+   * 组件销毁前清理定时器
+   */
+  beforeUnmount() {
+    this.pauseAutoPlay();
+  }
+}
 </script>
 <style>
 .container {
@@ -1022,10 +1136,108 @@ li a:hover {
 
 
 
-.main-content .banner {
+/* 轮播图容器样式 */
+.main-content .banner-carousel {
   width: 690px;
   height: 458px;
   margin: 0 10px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 图片容器 */
+.carousel-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* 图片包装器 */
+.carousel-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* 单个图片项 */
+.carousel-item {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 左右切换按钮 */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn-prev {
+  left: 15px;
+}
+
+.carousel-btn-next {
+  right: 15px;
+}
+
+/* 底部指示器 */
+.carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
+}
+
+.indicator.active {
+  background-color: #1ac587;
+  transform: scale(1.3);
 }
 
 
