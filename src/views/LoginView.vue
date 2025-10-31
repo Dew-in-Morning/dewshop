@@ -1,9 +1,13 @@
 <template>
     <div class="login-view">
-        <video autoplay loop id="bg-video">
+        <video ref="bgVideo" autoplay loop muted playsinline id="bg-video">
             <source src="../assets/登录页面.mp4" type="video/mp4">
             您的浏览器不支持 HTML5 视频。
         </video>
+        <!-- 静音/解除静音按钮 -->
+        <button class="mute-button" @click="toggleMute">
+            {{ isMuted ? '🔇' : '🔊' }}
+        </button>
         <div>
             <div class="logo">
                 <img src="../assets/images/pnglogo.png" alt="logo">
@@ -33,8 +37,10 @@
     </div>
 </template>
 
-<script>
-import { reactive } from 'vue'
+<script setup>
+import { reactive, ref, onMounted } from 'vue'
+
+// 定义表单数据
 const form = reactive({
   name: '',
   region: '',
@@ -46,9 +52,31 @@ const form = reactive({
   desc: '',
 })
 
+// 提交表单
 const onSubmit = () => {
   console.log('submit!')
 }
+
+// 视频元素引用
+const bgVideo = ref(null)
+// 静音状态
+const isMuted = ref(true)
+
+// 切换静音状态
+const toggleMute = () => {
+  if (bgVideo.value) {
+    bgVideo.value.muted = !bgVideo.value.muted
+    isMuted.value = bgVideo.value.muted
+  }
+}
+
+onMounted(() => {
+  if (bgVideo.value) {
+    // 确保视频初始状态是静音的
+    bgVideo.value.muted = true
+    isMuted.value = true
+  }
+})
 </script>
 
 <style scoped>
@@ -99,5 +127,26 @@ const onSubmit = () => {
 label {
     display: block;
     margin-bottom: 5px;
+}
+
+.mute-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 10;
+}
+
+.mute-button:hover {
+    opacity: 1;
 }
 </style>
