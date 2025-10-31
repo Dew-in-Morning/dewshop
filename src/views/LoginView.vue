@@ -10,17 +10,23 @@
             </div>
             <div class="login-container">
                 <h2 class="title">登录</h2>
-                <form @submit.prevent="handleLogin">
-                    <div class="form-group">
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" v-model="username" required />
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" v-model="password" required />
-                    </div>
-                    <button type="submit">Login</button>
-                </form>
+                <el-form :model="form" label-width="auto" style="max-width: 600px">
+                    <el-form-item label="Activity name">
+                        <el-input v-model="form.name" />
+                    </el-form-item>
+                    
+                    <el-form-item label="Resources">
+                        <el-radio-group v-model="form.resource">
+                            <el-radio value="Sponsor">Sponsor</el-radio>
+                            <el-radio value="Venue">Venue</el-radio>
+                        </el-radio-group>
+                    </el-form-item>
+                    
+                    <el-form-item>
+                        <el-button type="primary" @click="onSubmit">Create</el-button>
+                        <el-button>Cancel</el-button>
+                    </el-form-item>
+                </el-form>
             </div>
         </div>
 
@@ -28,21 +34,20 @@
 </template>
 
 <script>
-export default {
-    name: 'LoginView',
-    data() {
-        return {
-            username: '',
-            password: ''
-        }
-    },
-    methods: {
-        handleLogin() {
-            // Handle login logic here
-            console.log('Login clicked with username:', this.username, 'and password:', this.password);
-            // You can add authentication logic or API calls here
-        }
-    }
+import { reactive } from 'vue'
+const form = reactive({
+  name: '',
+  region: '',
+  date1: '',
+  date2: '',
+  delivery: false,
+  type: [],
+  resource: '',
+  desc: '',
+})
+
+const onSubmit = () => {
+  console.log('submit!')
 }
 </script>
 
@@ -57,7 +62,7 @@ export default {
     /* 在内容后面 */
     object-fit: cover;
     /* 保持比例填充 */
-    
+
 }
 
 .login-view {
