@@ -13,22 +13,26 @@
                 <img src="../assets/images/pnglogo.png" alt="logo">
             </div>
             <div class="login-container">
-                <h2 class="title">登录</h2>
+                <h2 class="title1">登录</h2>
+                <h3 class="title2">注册</h3>
                 <el-form :model="form" label-width="auto" style="max-width: 600px">
-                    <el-form-item label="Activity name">
-                        <el-input v-model="form.name" />
+                    <el-form-item>
+                        <el-input clearable v-model="form.name" :placeholder="placeholderText" />
                     </el-form-item>
-                    
-                    <el-form-item label="Resources">
-                        <el-radio-group v-model="form.resource">
-                            <el-radio value="Sponsor">Sponsor</el-radio>
-                            <el-radio value="Venue">Venue</el-radio>
+                    <el-form-item>
+                        <el-input clearable show-password v-model="form.password" placeholder="请输入密码" type="password" />
+                    </el-form-item>
+                    <el-form-item>
+                        <el-radio-group v-model="form.loginMethod">
+                            <el-radio value="username">用户名登录</el-radio>
+                            <el-radio value="phone">手机号登录</el-radio>
+                            <el-radio value="email">邮箱登录</el-radio>
                         </el-radio-group>
                     </el-form-item>
                     
-                    <el-form-item>
-                        <el-button type="primary" @click="onSubmit">Create</el-button>
-                        <el-button>Cancel</el-button>
+                    <el-form-item class="submit-group">
+                        <el-button type="primary" @click="onSubmit">登录</el-button>
+                        <el-button>重置</el-button>
                     </el-form-item>
                 </el-form>
             </div>
@@ -38,24 +42,23 @@
 </template>
 
 <script setup>
-import { reactive, ref, onMounted } from 'vue'
+import { reactive, ref, onMounted, computed } from 'vue'
 
 // 定义表单数据
 const form = reactive({
   name: '',
-  region: '',
-  date1: '',
-  date2: '',
-  delivery: false,
-  type: [],
-  resource: '',
-  desc: '',
+  password: '',
+  
+loginMethod: 'username', // 默认登录方式
 })
 
 // 提交表单
 const onSubmit = () => {
   console.log('submit!')
 }
+
+
+
 
 // 视频元素引用
 const bgVideo = ref(null)
@@ -77,6 +80,24 @@ onMounted(() => {
     isMuted.value = true
   }
 })
+
+
+
+
+// 根据登录方式动态改变输入框提示文本
+const placeholderText = computed(() => {
+  switch (form.loginMethod) {
+    case 'username':
+      return '请输入用户名'
+    case 'phone':
+      return '请输入手机号'
+    case 'email':
+      return '请输入邮箱'
+    default:
+      return '请输入'
+  }
+})
+
 </script>
 
 <style scoped>
@@ -112,23 +133,42 @@ onMounted(() => {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.title {
+.title1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin: 20px 0px 40px 0px;
     font-size: 40px;
     font-weight: bold;
     color: #1ac587;
+
+}
+.title2 {
+    position: absolute;
+    top: 40px;
+    right: -20px;
+    
+    width: 100%;
+
+    text-align: center;
+    margin: 20px 0px 40px 0px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #1ac587;
+
+    /* 透明度 */
+    opacity: 0.5;
+    cursor: pointer;
+}
+.submit-group {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-left: 110px;
+    margin-top: 50px;
 }
 
-.form-group {
-    margin-bottom: 15px;
-}
 
-label {
-    display: block;
-    margin-bottom: 5px;
-}
 
+/* #region 静音按钮 */
 .mute-button {
     position: fixed;
     bottom: 20px;
@@ -149,4 +189,5 @@ label {
 .mute-button:hover {
     opacity: 1;
 }
+/* #endregion */
 </style>
