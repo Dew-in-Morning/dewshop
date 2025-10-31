@@ -14,8 +14,8 @@
             </div>
             <div class="login-container">
                 <h2 class="title1">登录</h2>
-                <h3 class="title2">注册</h3>
-                <el-form :model="form" label-width="auto" style="max-width: 600px">
+                <h2 class="title2">注册</h2>
+                <el-form :model="form" label-width="auto" style="max-width: 600px ;display: none;">
                     <el-form-item>
                         <el-input clearable v-model="form.name" :placeholder="placeholderText" />
                     </el-form-item>
@@ -35,6 +35,28 @@
                         <el-button>重置</el-button>
                     </el-form-item>
                 </el-form>
+                <el-form :model="form2" label-width="auto" style="max-width: 600px ;display: block;">
+                    <el-form-item>
+                        <el-input clearable v-model="form2.name" :placeholder="placeholderText2" />
+                    </el-form-item>
+                    <el-form-item>
+                        <el-input clearable show-password v-model="form2.password" placeholder="请输入密码" type="password" />
+                    </el-form-item>
+                    <el-form-item>
+                        <el-input clearable show-password v-model="form2.confirmPassword" placeholder="请确认密码" type="password" />
+                    </el-form-item>
+                    <el-form-item>
+                        <el-radio-group v-model="form2.registerMethod">
+                            <el-radio value="phone">手机号注册</el-radio>
+                            <el-radio value="email">邮箱注册</el-radio>
+                        </el-radio-group>
+                    </el-form-item>
+                    
+                    <el-form-item class="submit-group">
+                        <el-button type="primary" @click="onSubmit">注册</el-button>
+                        <el-button>重置</el-button>
+                    </el-form-item>
+                </el-form>
             </div>
         </div>
 
@@ -51,7 +73,12 @@ const form = reactive({
   
 loginMethod: 'username', // 默认登录方式
 })
-
+const form2 = reactive({
+  name: '',
+  password: '',
+  confirmPassword: '',
+registerMethod: 'phone', // 默认注册方式
+})
 // 提交表单
 const onSubmit = () => {
   console.log('submit!')
@@ -97,7 +124,17 @@ const placeholderText = computed(() => {
       return '请输入'
   }
 })
-
+// 根据注册方式动态改变输入框提示文本
+const placeholderText2 = computed(() => {
+  switch (form2.registerMethod) {
+    case 'phone':
+      return '请输入手机号'
+    case 'email':
+      return '请输入邮箱'
+    default:
+      return '请输入'
+  }
+})
 </script>
 
 <style scoped>
