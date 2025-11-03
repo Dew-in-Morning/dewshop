@@ -13,9 +13,14 @@
                 <img src="../assets/images/pnglogo.png" alt="logo">
             </div>
             <div class="login-container">
-                <h2 class="title1">登录</h2>
-                <h2 class="title2">注册</h2>
-                <el-form :model="form" label-width="auto" style="max-width: 600px ;display: none;">
+                <h2 class="title1"
+                    :class="{ 'title1-active': isLoginMode, 'title1-inactive': !isLoginMode }"
+                    @click="switchToLogin">登录</h2>
+                <h2 class="title2"
+                    :class="{ 'title2-active': !isLoginMode, 'title2-inactive': isLoginMode }"
+                    @click="switchToRegister">注册</h2>
+                <!-- 登录表单 -->
+                <el-form v-if="isLoginMode" :model="form" label-width="auto" style="max-width: 600px;">
                     <el-form-item>
                         <el-input clearable v-model="form.name" :placeholder="placeholderText" />
                     </el-form-item>
@@ -29,13 +34,14 @@
                             <el-radio value="email">邮箱登录</el-radio>
                         </el-radio-group>
                     </el-form-item>
-                    
+
                     <el-form-item class="submit-group">
                         <el-button type="primary" @click="onSubmit">登录</el-button>
                         <el-button>重置</el-button>
                     </el-form-item>
                 </el-form>
-                <el-form :model="form2" label-width="auto" style="max-width: 600px ;display: block;">
+                <!-- 注册表单 -->
+                <el-form v-if="!isLoginMode" :model="form2" label-width="auto" style="max-width: 600px;">
                     <el-form-item>
                         <el-input clearable v-model="form2.name" :placeholder="placeholderText2" />
                     </el-form-item>
@@ -51,7 +57,7 @@
                             <el-radio value="email">邮箱注册</el-radio>
                         </el-radio-group>
                     </el-form-item>
-                    
+
                     <el-form-item class="submit-group">
                         <el-button type="primary" @click="onSubmit">注册</el-button>
                         <el-button>重置</el-button>
@@ -91,6 +97,8 @@ const onSubmit = () => {
 const bgVideo = ref(null)
 // 静音状态
 const isMuted = ref(true)
+// 登录/注册模式状态
+const isLoginMode = ref(true)
 
 // 切换静音状态
 const toggleMute = () => {
@@ -98,6 +106,21 @@ const toggleMute = () => {
     bgVideo.value.muted = !bgVideo.value.muted
     isMuted.value = bgVideo.value.muted
   }
+}
+
+// 统一的模式切换函数
+const switchMode = (mode) => {
+  isLoginMode.value = mode
+}
+
+// 切换到登录模式
+const switchToLogin = () => {
+  switchMode(true)
+}
+
+// 切换到注册模式
+const switchToRegister = () => {
+  switchMode(false)
 }
 
 onMounted(() => {
@@ -176,24 +199,64 @@ const placeholderText2 = computed(() => {
     font-size: 40px;
     font-weight: bold;
     color: #1ac587;
-
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
 }
+
 .title2 {
     position: absolute;
     top: 40px;
     right: -20px;
-    
     width: 100%;
-
     text-align: center;
     margin: 20px 0px 40px 0px;
     font-size: 30px;
     font-weight: bold;
     color: #1ac587;
-
-    /* 透明度 */
     opacity: 0.5;
     cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+/* title1（登录）激活状态样式 */
+.title1-active {
+    font-size: 40px;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* title1（登录）非激活状态样式 */
+.title1-inactive {
+    font-size: 30px;
+    opacity: 0.5;
+    position: absolute;
+    top: 40px;
+    right: -20px;
+    width: 100%;
+
+    z-index: 5;
+}
+
+/* title2（注册）激活状态样式 */
+.title2-active {
+    position: relative;
+    top: auto;
+    right: auto;
+    font-size: 40px;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* title2（注册）非激活状态样式 */
+.title2-inactive {
+    position: absolute;
+    top: 40px;
+    right: -20px;
+    width: 100%;
+    font-size: 30px;
+    opacity: 0.5;
+
+    z-index: 5;
 }
 .submit-group {
     width: 100%;
