@@ -84,7 +84,7 @@
             <div class="cart-quantity">
               <div class="quantity-controls">
                 <button @click="decreaseQuantity(item)" :disabled="item.quantity <= 1">-</button>
-                <input type="number" v-model="item.quantity" @change="updateTotalPrice" min="1">
+                <input  v-model="item.quantity" @change="updateTotalPrice" min="1">
                 <button @click="increaseQuantity(item)">+</button>
               </div>
             </div>
@@ -384,6 +384,7 @@ li a:hover {
   background-color: #f1ffd5;
   border: 1px solid #c2f587;
   border-radius: 5px;
+  font-size: 16px;
   font-weight: bold;
   color: #1ac587;
 }
