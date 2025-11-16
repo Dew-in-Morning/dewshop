@@ -141,7 +141,7 @@ export default {
           price: 6799,
           originalPrice: 7999,
           quantity: 1,
-          image: '../assets/images/phone1.jpg',
+          image: require('@/assets/images/华为Mate50.jpg'),
           selected: true
         },
         {
@@ -151,7 +151,7 @@ export default {
           price: 8999,
           originalPrice: 9999,
           quantity: 2,
-          image: '../assets/images/phone2.jpg',
+          image: require('@/assets/images/Apple iPhone14.jpg'),
           selected: true
         },
         {
@@ -160,7 +160,7 @@ export default {
           description: '12GB+256GB 黑色 徕卡影像 5G手机',
           price: 5499,
           quantity: 1,
-          image: '../assets/images/phone3.jpg',
+          image: require('@/assets/images/小米13 Ultra.jpg'),
           selected: false
         }
       ]
