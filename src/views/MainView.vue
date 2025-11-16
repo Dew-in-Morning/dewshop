@@ -5,15 +5,15 @@
         <div class="welcome">
           <span class="hello">DEWshop欢迎您</span>
           <span>
-            <a href="#" class="login">登录</a>
-            <a href="#" class="register">注册</a>
+            <a href="#/login" class="login">登录</a>
+            <a href="#/login" class="register">注册</a>
           </span>
         </div>
         <div class="nav">
           <ul>
-            <li><a href="#">首页</a></li>
+            <li><a href="#/main" class="active">首页</a></li>
             <li><a href="#">商品分类</a></li>
-            <li><a href="#">购物车</a></li>
+            <li><a href="#/cart">购物车</a></li>
             <li><a href="#">我的订单</a></li>
             <li><a href="#">用户中心</a></li>
           </ul>

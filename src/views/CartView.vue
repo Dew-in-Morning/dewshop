@@ -222,70 +222,78 @@ export default {
 
 <style scoped>
 /* 基础样式 */
-.mainview {
-  width: 100%;
-  min-height: 100vh;
-  background-color: #f5f5f5;
-}
-
 .container {
   width: 1190px;
   margin: 0 auto;
 }
 
-/* 顶部导航栏样式 */
-.topbar {
-  background-color: #f1ffd5;
-  padding: 8px 0;
-  border-bottom: 1px solid #c2f587;
+li a:hover {
+  color: #1ac587;
 }
 
-.welcome {
+/* #region 顶部导航栏 */
+.topbar .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 0;
+}
+
+.topbar {
+  height: 30px;
+  background-color: #ECECEC;
+}
+
+.welcome {
+  height: 30px;
+  line-height: 30px;
+  color: #666;
+  font-size: 12px;
 }
 
 .hello {
-  color: #1ac587;
-  font-weight: bold;
+  margin-right: 28px;
 }
 
-.welcome a {
-  color: #666;
-  text-decoration: none;
-  margin: 0 5px;
+.login {
+  padding-right: 10px;
+  border-right: 1px solid #666;
 }
 
-.welcome a:hover {
-  color: #1ac587;
+.register {
+  padding-left: 10px;
+}
+
+.nav {
+  height: 30px;
+  line-height: 30px;
+  font-size: 12px;
 }
 
 .nav ul {
-  list-style: none;
   display: flex;
-  gap: 30px;
-  margin: 0;
-  padding: 10px 0;
+}
+
+.nav li {
+  margin-right: 28px;
+}
+
+.nav li:last-child {
+  margin-right: 0;
 }
 
 .nav a {
   color: #666;
-  text-decoration: none;
-  font-size: 14px;
 }
 
-.nav a:hover,
-.nav a.active {
-  color: #1ac587;
+.nav a:hover {
+  color: #000;
 }
 
-/* 页面头部样式 */
+/* #endregion */
+/* #region 头部搜索栏 */
 .header {
-  background-color: white;
-  padding: 20px 0;
-  border-bottom: 1px solid #c2f587;
+  height: 120px;
+  background-color: #f1ffd5;
 }
 
 .header .container {
@@ -295,41 +303,36 @@ export default {
 }
 
 .logo img {
-  height: 60px;
+  height: 120px;
 }
 
 .search {
+  height: 120px;
+  line-height: 120px;
+  font-size: 12px;
   display: flex;
   align-items: center;
 }
 
 .search input {
   width: 400px;
-  height: 40px;
-  padding: 0 15px;
-  border: 2px solid #c2f587;
-  border-radius: 20px 0 0 20px;
-  outline: none;
-  font-size: 14px;
+  height: 30px;
+  padding-left: 10px;
+  border: 1px solid #c2f587;
 }
 
 .search button {
-  height: 44px;
-  width: 60px;
-  border: 2px solid #c2f587;
-  border-left: none;
-  border-radius: 0 20px 20px 0;
+  width: 80px;
+  height: 32px;
   background-color: #c2f587;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.search button:hover {
-  background-color: #1ac587;
+.search button img {
+  margin: 0 auto;
+  height: 25px;
 }
 
+/* #endregion */
 /* 购物车内容样式 */
 .cart-content {
   background-color: white;
