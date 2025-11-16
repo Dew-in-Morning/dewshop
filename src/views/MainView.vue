@@ -901,10 +901,21 @@ export default {
 }
 </script>
 <style>
+/* 
+- 颜色参考：“
+链接被鼠标悬浮时：#1ac587；
+分割线：#c2f587
+背景颜色：#f1ffd5
+特殊字的字体颜色：#1ac587
+其他颜色：稍浅的#c2f587、稍深的#c2f587
+”
+*/
+
+
+
 .container {
   width: 1190px;
   margin: 0 auto;
-
 }
 
 li a:hover {
