@@ -1190,8 +1190,10 @@ li a:hover {
 /* 左右切换按钮 */
 .carousel-btn {
   position: absolute;
+/* 居中 */
   top: 50%;
   transform: translateY(-50%);
+
   width: 50px;
   height: 50px;
   background-color: rgba(0, 0, 0, 0.5);
